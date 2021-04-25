@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Test {
+public class TestCalculator {
 	public static void main(String[] args) {
 		//set chrome driver
 //		System.setProperty("webdriver.chrome.driver", 
