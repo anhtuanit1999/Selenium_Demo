@@ -1,24 +1,22 @@
 package selenium;
 
-import java.time.Duration;
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCalculator {
-	public static void main(String[] args) {
-		//set chrome driver
-//		System.setProperty("webdriver.chrome.driver", 
-//				"D:\\taiLieuOneDrive\\Du Lieu\\Nam3\\Hoc ky 2\\Dam bao chat luong & kiem thu\\chromedriver\\chrome91\\chromedriver.exe");
+	@Test
+	public void tinhCong() {
 		WebDriver driver = null;
+		String res = null;
 		try {
 			DriverManagerType chrome = DriverManagerType.CHROME;
 			WebDriverManager.getInstance(chrome).setup();
@@ -45,7 +43,7 @@ public class TestCalculator {
 			driver.findElement(By.xpath("//span[contains(text(),'=')]")).click();
 			
 			//get result
-			String res = driver.findElement(By.xpath("//div[@id='sciOutPut']")).getText();
+			res = driver.findElement(By.xpath("//div[@id='sciOutPut']")).getText();
 			
 			//show result
 			System.out.println("Result is : " + res);
@@ -55,10 +53,6 @@ public class TestCalculator {
 			//close the browser
 			driver.close();
 		}
-		
-		
-		
-		
-		
+		assertEquals("12", res.trim());
 	}
 }
